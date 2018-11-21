@@ -119,7 +119,15 @@ class App extends Component {
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             <div style={{ padding: 24, background: '#fff' }}>
-              <Profile />
+
+              <Profile
+                events_data={this.state.events_data}
+                user_data={this.state.user_data}
+                repo_data={this.state.repo_data}
+                followers_data={this.state.followers_data}
+                following_data={this.state.following_data}
+              />
+
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
