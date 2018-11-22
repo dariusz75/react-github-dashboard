@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Input } from 'antd';
 import { Switch, Route, Link } from 'react-router-dom';
 import Profile from './components/Profile';
 import Repo from './components/Repo';
@@ -9,6 +9,7 @@ import './App.css';
 
 import axios from 'axios';
 
+const Search = Input.Search;
 const { Header, Content, Footer, Sider } = Layout;
 
 class App extends Component {
@@ -123,7 +124,14 @@ class App extends Component {
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: 200, height: '100vh' }} >
-          <Header style={{ background: '#fff', padding: 0 }} />
+          <Header style={{ background: '#fff', padding: 0 }} >
+            <Search
+              style={{ width: '300px', marginLeft: '20px' }}
+              placeholder="Github Username"
+              onSearch={value => this.fetchData(value)}
+              enterButton
+            />
+          </Header>
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             <div style={{ padding: 24, background: '#fff' }}>
               <Switch>
